@@ -12,28 +12,28 @@
 {% load static %}
 <!Doctype html>
 {% block title %}
-blog
+About
 {% endblock %}
 
 {% block content %}
 
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({% static 'frontend/img/about.jpg' %});" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="{% url 'frontend:about' %}">CONTACTT<i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="{% url 'frontend:about' %}">ABOUT<i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
             <h1 class="mb-3 bread">ABOUT</h1>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-section">
+    <!-- <section class="ftco-section">
       <div class="container">
         <div class="row d-flex justify-content-center">
-            <!-- {% if blog %}
-            {% for b in blog %} -->
+            {% if about %}
+            {% for v in about %}
 
           <div class="col-md-12 text-center d-flex ftco-animate">
           	<div class="blog-entry justify-content-end mb-md-5">
@@ -41,14 +41,14 @@ blog
               
               <div class="text px-md-5 pt-4">
               	<div class="meta mb-3">
-                      <img src="{{b.image.url}}" height="300px" alt="">
+                      <img src="{{v.image.url}}" height="300px" alt="">
                   <div><a href="#">Oct. 29, 2019</a></div>
-                  <div><a href="#">{{b.poster}}</a></div>
+                  <div><a href="#">{{v.poster}}</a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span>3</a></div>
                 </div>
                
-                <h3 class="heading mt-2"><a href="#"> <h4>{{ b.title }}</h4></a></h3>
-                <p> {{b.content}}</p>
+                <h3 class="heading mt-2"><a href="#"> <h4>{{ v.title }}</h4></a></h3>
+                <p> {{v.content}}</p>
                 <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p>
               </div>
             </div>
@@ -57,9 +57,39 @@ blog
         {% endfor %}
         {% endif%}
       </div>
-   
-    </section>
-  {% endblock %}
+
+    </section> -->
+    
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-8 order-1 order-lg-2" data-aos="fade-left">
+            <img src="{% static 'frontend/img/Graphic.webp' %} " class="img-fluid" alt="" width="1500px" height="20000px">
+          </div>
+          <div class="col-lg-4 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+            </ul>
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+{% endblock %}
   
   </body>
 </html>

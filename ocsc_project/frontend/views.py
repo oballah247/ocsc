@@ -9,16 +9,17 @@ from frontend.form import *
 # Create your views here.
 
 def index (request):
-    return render (request,'frontend/index.html')
+    ser = Services.objects.all()[:6]
+    return render (request,'frontend/index.html', {'services':ser})
     
 def about (request):
-    about = about.objects.all()
-    return render (request, 'frontend/about.html',{'aba':about} )
+    about = About.objects.all()
+    return render (request,'frontend/about.html',{'aba':about})
 
 
 def team (request):
     team = Team.objects.all()
-    return render (request,'frontend/index.html', {'team':team})
+    return render (request,'frontend/team.html', {'team':team})
    
 
 def register (request):

@@ -20,6 +20,35 @@ blog
       </div>
     </section>
 
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-title">
+          <span>Services</span>
+          <h2>Services</h2>
+          <p> Offer Allied  Services: </p>
+          <h1><strong>GRAPHIC DESIGNS /INTERNET SERVICES AS BELLOW:</strong></h1>
+         
+        </div>
+
+        <div class="row">
+          {% if services %}
+          {% for b in services %}
+    
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="icon-box">
+              <!-- <div class="icon"><i class="bx bxl-dribbble"></i></div> -->
+              <h4><a href=""><img style="width: 200px; height: 250px;" src="{{b.image.url}}" alt=""> </a></h4>
+              <h4>{{ b.name }}</h4>
+              <p>{{b.discription}} </p>
+              <p>{{b.type}} </p>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif%}
+        </div>
+      
+      </div>
+
     <section class="ftco-section">
       <div class="container">
         <div class="row d-flex justify-content-center">
