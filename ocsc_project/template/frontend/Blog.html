@@ -23,16 +23,14 @@ blog
     <section class="ftco-section">
       <div class="container">
         <div class="row d-flex justify-content-center">
-            {% if blog %}
+          {% if blog %}
             {% for b in blog %}
 
-          <div class="col-md-12 text-center d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end mb-md-5">
-              
-              
+          <div class="col-md-4 text-center d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end mb-md-5">  
               <div class="text px-md-5 pt-4">
               	<div class="meta mb-3">
-                      <img src="{{b.image.url}}" height="300px" alt="">
+                      <img src="{{b.image.url}}" height="300px" width="300px" height="300px" alt="">
                   <div><a href="#">{{b.date}}</a></div>
                   <div><a href="#">{{b.poster}}</a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span>3</a></div>
@@ -44,9 +42,9 @@ blog
               </div>
             </div>
           </div>
+            {% endfor %}
+          {% endif%}
         </div>
-        {% endfor %}
-        {% endif%}
       </div>
    
     </section>
