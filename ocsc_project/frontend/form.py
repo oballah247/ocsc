@@ -9,11 +9,39 @@ from django.core import validators
 
 
 class ContactForm(forms.ModelForm):
+    first_name = forms.CharField(required=False, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Enter Firstname'}))
+    last_name = forms.CharField(required=False, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Enter Lastname'}))
+    email = forms.EmailField(label='Email :',
+                             widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter Email'}))
+    address = forms.CharField(label='Address :', widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Enter:Address'}))
+    
+    message = forms.CharField(widget=forms.Textarea(attrs={
+        'class': 'form-control',
+        'placeholder': 'Type your message',
+        'id': 'usercomment',
+        'rows': '4'
+    }))
+    
     class Meta():
      model = Contact
-     fields = '__all__'
+     fields = ['first_name', 'last_name', 'email', 'address', 'message']
 
 
+class CommentForm(forms.ModelForm):
+    user_name = forms.CharField( widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name'}))
+    comment_content = forms.CharField(widget=forms.Textarea(attrs={
+        'class': 'form-control',
+        'placeholder': 'Type your comment',
+        'id': 'usercomment',
+        'rows': '4'
+    }))
+    class Meta:
+        model = Comment
+        exclude = ['user', 'post']
+        # fields = ('content', )
 
 
 class RegForm(UserCreationForm):

@@ -3,23 +3,18 @@
 {% load static %}
 <!Doctype html>
 {% block title %}
-blog
+Services
 {% endblock %}
 
 {% block content %}
-
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="{% url 'frontend:services' %}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">SERVICES</h1>
-          </div>
-        </div>
-      </div>
-    </section>
-
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({% static 'frontend/img/about.jpg' %}); height: 400px;" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+   
+        <h1 class="text-white text-center" style="font-weight: 700;">SERVICES</h1>
+     
+  </div>
+</section>
     <section id="services" class="services">
       <div class="container">
         <div class="section-title">
@@ -49,37 +44,7 @@ blog
       
       </div>
 
-    <section class="ftco-section">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-            {% if blog %}
-            {% for b in blog %}
-
-          <div class="col-md-12 text-center d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end mb-md-5">
-              
-              
-              <div class="text px-md-5 pt-4">
-              	<div class="meta mb-3">
-                      <img src="{{b.image.url}}" height="300px" alt="">
-                  <div><a href="#">Oct. 29, 2019</a></div>
-                  <div><a href="#">{{b.poster}}</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span>3</a></div>
-                </div>
-               
-                <h3 class="heading mt-2"><a href="#"> <h4>{{ b.title }}</h4></a></h3>
-                <p> {{b.content}}</p>
-                <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-        {% endif%}
-      </div>
    
-    </section>
   {% endblock %}
   
-  </body>
-</html>
+  
