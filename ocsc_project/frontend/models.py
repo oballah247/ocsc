@@ -10,26 +10,24 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Team(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=20, verbose_name='Team Member Name')
     image = models.FileField(null=True, blank=True,upload_to='uploads/pics')
-    position = models.TextField()
     discription = models.TextField()
-    sex = models.TextField()
-    age = models.IntegerField()
-    Address= models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
-def __srf__(self):
-    return self.name
+    def __srf__(self):
+        return self.name
 
 class Services(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=20, verbose_name='Service Name')
     image = models.FileField(null=True, blank=True,upload_to='uploads/pics')
-    Type= models.CharField(max_length=20)
     discription = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
   
-def __srf__(self):
-    return self.name
+    def __srf__(self):
+        return self.name
 
 class Contact(models.Model):
     address = models.CharField(max_length=100)
@@ -37,29 +35,20 @@ class Contact(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     message = models.TextField(max_length=200)
-   
-def __srf__(self):
-    return self.name
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __srf__(self):
+        return self.address
 
 class Blog(models.Model):
-    title = models.CharField(max_length=40)
+    title = models.CharField(max_length=40, verbose_name='BLog Title')
     image = models.FileField(null=True, blank=True,upload_to='uploads/pics')
-    poster = models.ForeignKey(User, on_delete=models.CASCADE)
     discription = models.TextField()
-  
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-def __srf__(self):
-    return self.name
-
-
-class About(models.Model):
-    Address = models.TextField(max_length=100)
-    email= models.EmailField(max_length=20)
-    subject = models.TextField(max_length=20)
-    Message = models.TextField(max_length=200)
-   
-def __srf__(self):
-    return self.name
+    def __str__(self):
+        return self.title
 
 
 class Comment(models.Model):
@@ -68,6 +57,15 @@ class Comment(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     comment_content = models.TextField(verbose_name= 'Content')
     post = models.ForeignKey(Blog, related_name='comments', on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user_name
+
+
+class SubscribeModel(models.Model):
+    email = models.EmailField(null=False, blank=True, max_length=200, unique=True)
+    timestamp = models.DateTimeField( auto_now_add=True)
+
+    def __str__(self):
+        return self.email

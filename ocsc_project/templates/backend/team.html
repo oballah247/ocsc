@@ -1,0 +1,63 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+OCSC
+{% endblock %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+
+    <!-- /.container-fluid -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-4 text-gray-800">Team </h1>
+        </div>
+
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-md-12">
+              <div class="card mb-4">
+                <div class="card-body">
+                 <div class="row p-3" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: oblique;">     
+                    {% if team %}
+                        {% for t in team %}
+                            
+                            
+                            <div class="row">
+                                <div class="col-md-2 col-sm-12">
+                                <figure ><img src="{{ t.image.url }}" alt=""style="width: 100px;height: 100px; border-radius:50%;" ></figure>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <h4>{{ t.name }}</h4>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <p>{{ t.discription|truncatewords:30 }}</p>
+                                </div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-md-5 p-2">
+                                    <button type="submit" class=" btn btn-primary me-2 fa fa-fw "><a href="{% url 'backend:view_team' t.id %}" style="color:#fff;">View Details</a></button>
+                                </div>
+                                <div class="col-md-5 p-2">
+                                    <button type="submit" class=" btn btn-success me-2 fa fa-fw fa-pencil"><a href="{{ t.id }}" style="color:#fff;">Edit Team</a></button>
+                                </div>
+                                <div class="col-md-2 p-2">
+                                    <button type="reset" class=" btn btn-outline-danger fa fa-fw fa-times-circle-o"><a href="{% url 'backend:delete_team' t.id %}" style="color:black;">Delete</a></button>         
+                            </div>
+                            <hr class="pt-3 pb-3">
+                        {% endfor%}
+                    {% endif %}
+                                      
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+{% endblock %}

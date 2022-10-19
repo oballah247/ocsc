@@ -1,6 +1,5 @@
 from unicodedata import name
 from django.contrib import admin
-
 from frontend.models import *
 # from ocsc_project.frontend.models import Contact
 
@@ -10,6 +9,7 @@ admin.site.register(Team)
 admin.site.register(Services)
 admin.site.register(Contact)
 admin.site.register(Blog)
+admin.site.register(SubscribeModel)
 
 
 

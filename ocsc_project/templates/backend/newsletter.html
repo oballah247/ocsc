@@ -1,0 +1,41 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+OCSC
+{% endblock %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+
+    <!-- /.container-fluid -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-4 text-gray-800">Blogs </h1>
+        </div>
+
+        <div class="card">
+                      
+            <div class="table-responsive text-nowrap">
+                
+                
+                {% if newsletter %}
+                    {% for l in newsletter %}
+                    <ul>
+                        <li>
+                            {{ l.email}}
+                        </li>
+                    </ul>
+                    {% endfor %}
+                {% endif %}
+            
+            </div>
+        </div>
+      
+
+    </div>
+
+{% endblock %}

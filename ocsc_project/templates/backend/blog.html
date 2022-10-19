@@ -1,0 +1,63 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+OCSC
+{% endblock %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+
+    <!-- /.container-fluid -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-4 text-gray-800">Blogs </h1>
+        </div>
+
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-md-12">
+              <div class="card mb-4">
+                <div class="card-body">
+                 <div class="row p-3" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: oblique;">     
+                    {% if blog %}
+                        {% for b in blog %}
+                            
+                            
+                            <div class="row">
+                                <div class="col-md-2 col-sm-12">
+                                <figure ><img src="{{ b.image.url }}" alt=""style="width: 100px;height: 100px; border-radius:50%;" ></figure>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <h4>{{ b.title }}</h4>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <p>{{ b.discription|truncatewords:30 }}</p>
+                                </div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-md-6 p-2">
+                                    <button type="submit" class=" btn btn-primary me-2 fa fa-fw fa-eye"><a href="{% url 'backend:view_blog' b.id %}" style="color:#fff;">View Details</a></button>
+                                </div>
+                                <div class="col-md-4 p-2">
+                                    <button type="submit" class=" btn btn-success me-2 fa fa-fw fa-pencil"><a href="{{ b.id }}" style="color:#fff;">Edit Blog</a></button>
+                                </div>
+                                <div class="col-md-2 p-2">
+                                    <button type="reset" class=" btn btn-outline-danger fa fa-fw fa-times-circle-o"><a href="{% url 'backend:delete_blog' b.id %}" style="color:black;">Delete</a></button>         
+                            </div>
+                            <hr class="pt-3 pb-3">
+                        {% endfor%}
+                    {% endif %}
+                                      
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+{% endblock %}

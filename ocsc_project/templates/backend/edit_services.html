@@ -1,0 +1,57 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+OCSC
+{% endblock %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+
+    <!-- /.container-fluid -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-4 text-gray-800">Edit Blog </h1>
+        </div>
+
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <form class="card-body" enctype="multipart/form-data" method="POST">
+                  {% if messages %}
+                      {% for mes in messages %}
+                      <div class="alert {{ mes.tags }}">{{ mes }}</div>
+                      {% endfor %}
+                  {% endif %}
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label">Services image</label><br>
+                    {{ editservices_form.image }}
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Services Name</label>
+                    <div class="form-floating">
+                      {{ editservices_form.name }}
+                      <label for="floatingInput">Services Name</label>
+                    </div>
+                  </div>
+                  <div>
+                    <label for="exampleFormControlTextarea1" class="form-label">Textarea</label>
+                    {{ editservices_form.discription }}
+                  </div>
+                  <div class="mt-2">
+                    <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                    <!-- <button type="reset" class="btn btn-outline-secondary">Cancel</button> -->
+                  </div>
+                  {% csrf_token %}
+                </form>
+              </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

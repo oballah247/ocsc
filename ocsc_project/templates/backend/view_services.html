@@ -1,0 +1,49 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+OCSC
+{% endblock %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+
+    <!-- /.container-fluid -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-4 text-gray-800">Services Details </h1>
+        </div>
+
+        <div class="col-md-12">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="row p-1" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: oblique;">     
+                  {% if pst %}
+                      {% for v in pst %}    
+                          <div class="row align-items-center">
+                              <div class="col-12 align-items-center">
+                                <div class="card-body" id="both-scrollbars-example">
+                                  <img class="img-fluid" src="{{ v.image.url }}" alt="scrollbar-image">
+                                </div>
+                              </div>
+                              <div class="col-12 align-items-center m-3">
+                                  <h2><strong>{{ v.name }}</strong></h2>
+                              </div>
+                              <div class="col-md-6 col-sm-12 align-items-center">
+                                  <p>{{ v.discription }}</p>
+                              </div>
+                          </div>
+                          <button type="submit" class=" btn btn-primary me-2 fa fa-fw fa-eye col-md-2 col-sm-5"><a href="{% url 'backend:services'%}" style="color:#fff;">Back</a></button>
+                      {% endfor%}
+                  {% endif %}                      
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+{% endblock %}

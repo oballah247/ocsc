@@ -1,0 +1,51 @@
+
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+About
+{% endblock %}
+
+{% block content %}
+
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({% static 'frontend/img/about.jpg' %}); height: 400px;" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+       
+            <h1 class="text-white text-center" style="font-weight: 700;">ABOUT OCSC</h1>
+         
+      </div>
+    </section>
+
+    
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-8 order-1 order-lg-2" data-aos="fade-left">
+            <img src="{% static 'frontend/img/Graphic.webp' %} " class="img-fluid" alt="" width="1500px" height="20000px">
+          </div>
+          <div class="col-lg-4 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+            </ul>
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+{% endblock %}
+ 
