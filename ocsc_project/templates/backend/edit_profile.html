@@ -1,0 +1,69 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+OCSC
+{% endblock %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+
+    <!-- /.container-fluid -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-4 text-gray-800"> Edit Profile </h1>
+        </div>
+
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-md-12">
+              <div class="card mb-4">
+                <div class="card-body">
+                 <div class="row p-3" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: oblique;">     
+                    <form id="formAccountSettings" method="post" enctype="multipart/form-data">
+                        {% if messages %}
+                          {% for message in messages %}
+                              <div class="alert alert-success">{{ message }}</div>
+                          {% endfor %}
+                        {% endif %}
+                        <div class="row">
+                          
+                          <div class="mb-3 col-md-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            {{ edit_key.first_name }} 
+
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            
+                            {{ edit_key.last_name }} 
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="username" class="form-label">Username</label>
+                            {{ edit_key.username }} 
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="email" class="form-label">E-mail</label>
+                            {{ edit_key.email }} 
+
+                          </div>
+                          
+                        </div>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Save Change</button>
+                        </div>
+                        {% csrf_token %}
+                      </form>
+                                      
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+{% endblock %}

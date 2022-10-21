@@ -147,6 +147,38 @@ class EditTeamForm(forms.ModelForm):
             'discription': forms.Textarea(attrs={'class': 'form-control', 'id':'exampleFormControlTextarea1','rows':'6'}),  
         }
 
+class EditUserForm(forms.ModelForm):
+    username = forms.CharField( widget=forms.TextInput(
+        attrs={'class':'form-control', 'placeholder': 'Username' }))
+
+    first_name = forms.CharField(required=False, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': ' FirstName'}))
+
+    last_name = forms.CharField(required=False, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': ' lastName'}))
+    
+    email = forms.EmailField(required=False, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Email'}))
+
+    image = forms.FileField(required=False)
+    
+
+    class Meta():
+        model = User
+        fields = ['username',  'first_name', 'last_name', 'email', 'image']
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.username = self.cleaned_data['username']
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.email = self.cleaned_data['email']
+        user.image = self.cleaned_data['image']
+    
+        if commit:
+            user.save()
+            return user
+
 class SubscribeForm(forms.ModelForm):
     email = forms.EmailField(label='', widget=forms.EmailInput(
         attrs={'class': 'form-control', 'placeholder': 'Email'}))

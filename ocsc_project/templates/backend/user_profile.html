@@ -1,0 +1,57 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+OCSC
+{% endblock %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+
+    <!-- /.container-fluid -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-4 text-gray-800">Team </h1>
+        </div>
+
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-md-12">
+              <div class="card mb-4">
+                <div class="card-body">
+                 <div class="row p-3" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: oblique;">     
+                    <form id="formAccountSettings" method="POST" onsubmit="return false">
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <p style="font-size: 18px;">{{ user.first_name }}</p>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <p style="font-size: 18px;">{{ user.last_name }}</p>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="username" class="form-label">Username</label>
+                            <p style="font-size: 18px;">{{ user.username }}</p>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="email" class="form-label">E-mail</label>
+                            <p style="font-size: 18px;">{{ user.email }}</p>
+                          </div>
+                          
+                          
+                        </div>
+                      </form>
+                                      
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+{% endblock %}

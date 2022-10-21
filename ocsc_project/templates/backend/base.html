@@ -134,8 +134,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Profile:</h6>
-                        <a class="collapse-item" href="#">Profile</a>
-                        <a class="collapse-item" href="#">Edit Profile</a>
+                        <a class="collapse-item" href="{% url 'backend:user_profile' %}">Profile</a>
+                        <a class="collapse-item" href="{% url 'backend:edit_profile' %}">Edit Profile</a>
                         <a class="collapse-item" href="{% url 'backend:change_password' %}">Change Password</a>
                         <a class="collapse-item" href="{% url 'backend:password_reset_request' %}">Forgotten Password</a>
                     </div>
