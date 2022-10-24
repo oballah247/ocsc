@@ -252,3 +252,8 @@ def edit_profile(request):
     else:
         edit_form = EditUserForm(instance=request.user)
     return render(request, 'backend/edit_profile.html', {'edit_key':edit_form})
+
+@login_required(login_url='/backend/login/')
+def contact(request):
+    contact = Contact.objects.all()
+    return render(request, 'backend/contact.html', {'contact':contact})

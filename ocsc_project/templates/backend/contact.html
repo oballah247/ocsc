@@ -1,0 +1,54 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title%}
+OCSC
+{% endblock %}
+
+{% block content %}
+    <!-- Begin Page Content -->
+
+    <!-- /.container-fluid -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-4 text-gray-800">Contact Messages </h1>
+        </div>
+
+        <div class="row">
+            <!-- Form controls -->
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <table class="table" style="background-color:#2957e1; color:#fff">
+                    <thead>
+                      <tr>
+                        <th>S/N</th>
+                        <th>Nmae</th>
+                        <th>Address</th>
+                        <th>Message</th>
+                        <th>Email</t>
+                      </tr>
+                    </thead>
+                    {% if contact %}
+                      {% for c in contact %}
+                    <tbody class="table-border-bottom-0">
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td> <strong>{{ c.first_name }} {{ c.last_name }}</strong></td>
+                        <td> <strong>{{ c.address }}</strong></td>
+                        <td>{{ c.message }}</td>
+                        <td>{{ c.email}}</td>
+                      </tr>
+                    </tbody>
+                      {% endfor %}
+                    {% endif %}
+                  </table>
+              </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

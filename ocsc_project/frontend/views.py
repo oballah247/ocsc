@@ -33,7 +33,7 @@ def about (request):
             subscribe_form.user = request.user
             subscribe_form.save()
             messages.success(request, 'Add successfully.')
-            return redirect('index')
+
     else:
         subscribe_form = SubscribeForm()
     return render (request,'frontend/about.html', {'subscribe_form':subscribe_form})
@@ -48,7 +48,7 @@ def team (request):
             subscribe_form.user = request.user
             subscribe_form.save()
             messages.success(request, 'Add successfully.')
-            return redirect('index')
+
     else:
         subscribe_form = SubscribeForm()
     return render (request,'frontend/team.html', {'team':team, 'subscribe_form':subscribe_form})
@@ -78,7 +78,6 @@ def blog(request):
             subscribe_form.user = request.user
             subscribe_form.save()
             messages.success(request, 'Add successfully.')
-            return redirect('index')
     else:
         subscribe_form = SubscribeForm()
     return render (request,'frontend/Blog.html',{'blog':blogs, 'subscribe_form':subscribe_form} )
@@ -94,7 +93,6 @@ def blog_post(request, pk):
             subscribe_form.user = request.user
             subscribe_form.save()
             messages.success(request, 'Add successfully.')
-            return redirect('index')
     else:
         subscribe_form = SubscribeForm()
     if request.method == "POST":
@@ -118,7 +116,6 @@ def services(request):
             subscribe_form.user = request.user
             subscribe_form.save()
             messages.success(request, 'Add successfully.')
-            return redirect('index')
     else:
         subscribe_form = SubscribeForm()
     return render (request, 'frontend/services.html',{'services':ser, 'subscribe_form':subscribe_form} )
@@ -131,14 +128,16 @@ def contact (request):
             subscribe_form.user = request.user
             subscribe_form.save()
             messages.success(request, 'Add successfully.')
-            return redirect('index')
     else:
         subscribe_form = SubscribeForm()
     if request.method == 'POST':
         contact_form = ContactForm(request.POST)
         if  contact_form.is_valid():
+            contact_form = contact_form.save(commit=False)
+            contact_form.user = request.user
             contact_form.save()
             messages.success(request, 'Thanks for contacting OCSC')
+            return redirect('frontend:contact')
     else:
         contact_form =ContactForm()
     return render (request, 'frontend/contact.html',{'cont':contact_form, 'subscribe_form':subscribe_form} )

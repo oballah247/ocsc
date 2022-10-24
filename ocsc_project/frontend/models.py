@@ -38,7 +38,7 @@ class Contact(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __srf__(self):
-        return self.address
+        return self.first_name
 
 class Blog(models.Model):
     title = models.CharField(max_length=40, verbose_name='BLog Title')

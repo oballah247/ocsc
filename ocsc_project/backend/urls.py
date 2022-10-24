@@ -20,6 +20,7 @@ urlpatterns =[
         path('view_services/<int:view_id>', views.view_services, name='view_services'), 
         path('delete-blog/<int:delete_id>', views.delete_blog, name='delete_blog'),
         path('delete-services/<int:delete_id>', views.delete_services, name='delete_services'),
+        path('contact/', views.contact, name='contact'),
         path('team/', views.team, name='team'),
         path('add_team/', views.add_team, name='add_team'),
         path('team/<int:team_id>', views.edit_team, name='edit_team'),
